@@ -2,42 +2,122 @@
 {
     internal class Program
     {
-        static void Volume(double radius , double højde ) 
+        static double Volume(double radius , double højde ) 
         {
             // det her er udregning af volumen formlen det er p*radius^2*h 
             double volumen = Math.PI * Math.Pow(radius, 2) * højde;
-            Console.WriteLine($"{volumen:F3}");
 
 
-            return;
+
+            return volumen;
 
         }
 
-        static void Overfladearealet(double radius, double højde)
+        static double Overfladearealet(double radius, double højde)
         {
             // det her er udregning af volumen formlen det er p*radius^2*h 
             double overfladearealet = 2 * Math.PI * radius * (radius + højde);
-            Console.WriteLine($"{overfladearealet:F3}");
+            
 
 
-            return;
+            return overfladearealet;
 
         }
         static void Main(string[] args)
         {
-            /* udregne volumen = V = p *r2 * h
-            overfladearealet for en cylinder : A=2*p*r^2+2*p*r*h
 
-
-             */
-            // double input = Convert.ToDouble(Console.ReadLine());
-
-
-
-            Volume(10 , 5);
-            Overfladearealet(10, 5);
+            bool playagain = true;
+           
             
             
+            while (playagain)
+            {
+
+                string answer = "";
+
+
+                Console.WriteLine("Hvilken hej beregner program vil du brug ? ");
+                Console.WriteLine("1 Volumen \n2 Overfladearealet  ");
+                answer = (Console.ReadLine());
+                Console.Clear();
+
+
+
+
+                if (answer == "1")
+                {
+
+                    double r;
+                    double h;
+                    double resultat;
+
+                    Console.WriteLine("Indtast Radius");
+                    r = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("Indtast højde");
+                    h = Convert.ToDouble(Console.ReadLine());
+
+
+                    resultat = Volume(r, h);
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("Volumen er :" + resultat);
+                    Console.ResetColor();
+
+
+                }
+
+
+                if (answer == "2")
+                {
+
+                    double r;
+                    double h;
+                    double resultat;
+
+                    Console.WriteLine("Indtast Radius");
+                    r = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("Indtast højde");
+                    h = Convert.ToDouble(Console.ReadLine());
+
+
+                    resultat = Overfladearealet(r, h);
+
+                    Console.WriteLine("Overfladearealet er = " + resultat);
+
+
+
+
+                }
+                
+                Console.WriteLine("Vil du prøve igen ? y/n ");
+                answer = (Console.ReadLine());
+                if (answer == "y")
+                {
+
+                    playagain = true;
+                    Console.Clear();
+                    Console.ResetColor();
+                }
+
+                else if (answer == "n")
+                {
+                    playagain = false;
+                    Console.WriteLine("tak for at være med ");
+                } 
+                
+                
+
+
+
+            }
+
+
+
+            
+
+
+
         }
     }
 }
